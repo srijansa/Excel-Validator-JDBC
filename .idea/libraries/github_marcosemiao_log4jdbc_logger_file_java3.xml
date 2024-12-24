@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="github.marcosemiao.log4jdbc.logger.file.java3" type="repository">
+    <properties maven-id="com.github.marcosemiao.log4jdbc.logger:log4jdbc-logger-file-java3:0.0.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/log4jdbc-logger-file-java3-0.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
