@@ -48,8 +48,23 @@ public class UpdateOperation {
             }
         }
     }
-    public void updateEmail(int userId){
+    public void updateEmail(int userId) {
         String query = "UPDATE users SET email = ? WHERE id = ?";
+        System.out.println("Enter the email:");
+        Scanner scanner = new Scanner(System.in);
+        String email = scanner.nextLine();
+        try {
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, email);
+            pstmt.setInt(2, userId);
+            int result = pstmt.executeUpdate();
+            if (result == 1) {
+                System.out.println("Email updated successfully for userId"+ userId);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     public void updateAddress(int userId){
         String query = "UPDATE users SET address = ? WHERE id = ?";
