@@ -44,7 +44,7 @@ public class UpdateOperation {
             preparedStatement.setInt(2, userId);
             int result = preparedStatement.executeUpdate();
             if (result == 1) {
-                System.out.println("Name updated successfully for userId"+userId);
+                System.out.println("Name updated successfully for userId "+userId);
             }
         }
     }
@@ -60,7 +60,7 @@ public class UpdateOperation {
             pstmt.setInt(2, userId);
             int result = pstmt.executeUpdate();
             if (result == 1) {
-                System.out.println("Email updated successfully for userId"+ userId);
+                System.out.println("Email updated successfully for userId "+ userId);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -68,8 +68,38 @@ public class UpdateOperation {
     }
     public void updateAddress(int userId){
         String query = "UPDATE users SET address = ? WHERE id = ?";
+        System.out.println("Enter the address:");
+        Scanner scanner = new Scanner(System.in);
+        String address = scanner.nextLine();
+        try{
+            Connection conn =   DatabaseConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, address);
+            pstmt.setInt(2, userId);
+            int result = pstmt.executeUpdate();
+            if (result == 1) {
+                System.out.println("Address updated successfully for userId "+ userId);
+            }
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
     public void changePassword(int userId){
         String query = "UPDATE users SET password = ? WHERE id = ?";
+        System.out.println("Enter new password:");
+        Scanner scanner = new Scanner(System.in);
+        String password = scanner.nextLine();
+        try{
+            Connection conn =   DatabaseConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, password);
+            pstmt.setInt(2, userId);
+            int result = pstmt.executeUpdate();
+            if (result == 1) {
+                System.out.println("Password Changed for userId "+ userId);
+            }
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 }
