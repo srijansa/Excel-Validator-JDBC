@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 
 public class ReadOperation {
     public void readAll() throws SQLException{
-        String query = "select * from student";
+        String query = "select * from users";
         try(
                 Connection conn = DatabaseConnection.getConnection();
                 Statement stmt = conn.createStatement();
