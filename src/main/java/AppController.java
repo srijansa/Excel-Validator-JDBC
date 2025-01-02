@@ -25,12 +25,19 @@ public class AppController {
                             int insertOption = scanner.nextInt();
                             if (insertOption == 1) {
                                 System.out.println("Enter the the record: ");
+                                // Issues faces: You need Auto- Increment in your relation for Id
+                                // Check table strcture - Auto - Increment is not woring insead:
+                                // 1. ALTER TABLE users DROP PRIMARY KEY;  -- for this case there was a Primary Key - id
+                                // 2. ALTER TABLE users ADD UNIQUE (id); -- make id unique instead
+                                // 3. ALTER TABLE users MODIFY COLUMN id INT DEFAULT NULL; -- make sure you assign a default value or see that autoincrement is working
                                 System.out.println("Name: ");
                                 String name = scanner.next();
                                 System.out.println("Email: ");
                                 String email = scanner.next();
                                 System.out.println("Address: ");
-                                String address = scanner.next();
+                                // Fixed input buffer error
+                                scanner.nextLine();
+                                String address = scanner.nextLine();
                                 System.out.println("Password: ");
                                 String password = scanner.next();
                                 insertOperation.insertSingle(name, email, address, password);
