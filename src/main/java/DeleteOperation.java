@@ -20,12 +20,14 @@ public class DeleteOperation {
                     break;
             case 2:
                     System.out.println("Enter Name: ");
-                    String name = scanner.next();
+                    scanner.nextLine();
+                    String name = scanner.nextLine();
                     deleteByName(name);
                     break;
             case 3:
                     System.out.println("Enter email: ");
-                    String email = scanner.next();
+                    scanner.nextLine();
+                    String email = scanner.nextLine();
                     deleteByEmail(email);
                     break;
             default:
