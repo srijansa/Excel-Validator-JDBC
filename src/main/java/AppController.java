@@ -43,8 +43,11 @@ public class AppController {
                                 insertOperation.insertSingle(name, email, address, password);
                             }
                             if (insertOption == 2) {
+                                // Check the url: C:\\Users\\srija\\Downloads\\Users.xlsx
+                                // Make sure you add double back slash
                                 System.out.println("Enter the excel path ");
-                                String excelPath = scanner.next();
+                                scanner.nextLine();
+                                String excelPath = scanner.nextLine();
                                 insertOperation.insertFromExcel(excelPath);
                             }
                             break;
